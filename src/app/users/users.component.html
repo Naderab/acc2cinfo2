@@ -1,0 +1,31 @@
+Person :
+Name : {{person.name}}
+age: {{person.age}}
+{{array}}<br>
+<!--{{arrayOfPerson}}-->
+<div *ngIf="arrayOfPerson.length > 0">
+    Search : <input type="text" name="search" [(ngModel)]="searchText">{{searchText}}
+    <button class="btn btn-success" (click)="search()">Search</button>
+    <table class="table">
+        <tr>
+            <th>Pic 1</th>
+            <th>Pic 2</th>
+            <th>name</th>
+            <th>age</th>
+            <th>Quantity</th>
+        </tr>
+        <tr *ngFor="let p of arrayOfPerson">
+            <td><img [src]="p.picture" width="150" height="150"></td>
+            <td><img src={{p.picture}} width="150" height="150"></td>
+            <td>{{p.name}}</td>
+            <td>{{p.age}}</td>
+            <td>{{p.quantity}}</td>
+            <td><a class="btn btn-primary" [routerLink]="['/user',p.name]">Details</a></td>
+            <td><button class="btn btn-primary" [disabled]="p.quantity == 0" (click)="Buy(p)">Buy</button></td>
+        </tr>
+    </table>
+</div>
+
+<div *ngIf="arrayOfPerson.length == 0">
+    Pas d'elements
+</div>
