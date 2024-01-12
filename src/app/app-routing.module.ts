@@ -4,12 +4,14 @@ import { ListResidenceComponent } from './list-residence/list-residence.componen
 import { UsersComponent } from './users/users.component';
 import { DetailsUserComponent } from './details-user/details-user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { FormResidenceComponent } from './form-residence/form-residence.component';
 
 const routes: Routes = [
   { path: 'listResidence', component: ListResidenceComponent },
   { path: 'users', component: UsersComponent },
   { path: 'user/:name', component: DetailsUserComponent },
   { path: '', redirectTo: '/listResidence', pathMatch: 'full' },
+  {path:'formResidence',component:FormResidenceComponent},
   { path: '**', component: NotFoundComponent },
 ];
 

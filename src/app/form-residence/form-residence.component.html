@@ -1,0 +1,10 @@
+<input class="form-control" [formControl]="name">
+<input type="submit" value="Ajouter" (click)="TestAdd()">
+
+<form [formGroup]="residence">
+    Name :<input class="form-control" formControlName="name">
+    Address : <input class="form-control" formControlName="address">
+    Image :<input class="form-control" formControlName="image">
+    <input type="submit" value="Ajouter" (click)="TestAdd()">
+</form>
+<button (click)="ajoutControl()"> add Control</button>
