@@ -22,7 +22,6 @@ export class FormResidenceComponent {
       image:'Test from ts'
     })
     console.log(this.residence.getRawValue());
-
   }
 
   ajoutControl() {
