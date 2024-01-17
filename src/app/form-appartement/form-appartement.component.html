@@ -1,0 +1,17 @@
+<form [formGroup]="appartement">
+    <input class="form-control" formControlName="appartNumber">
+    <input class="form-control" formControlName="floorNumber">
+
+    <input class="form-control" formControlName="surface">
+    <input formControlName="terace" type="radio" value="oui">oui
+    <input formControlName="terace" type="radio" value="non">non
+    <input class="form-control" formControlName="surfaceTerace">
+    <input formControlName="category" type="radio" value="s+1">s+1
+    <input formControlName="category" type="radio" value="s+2">s+2
+    <input formControlName="category" type="radio" value="s+3">s+3
+
+    <textarea class="form-control" formControlName="description">description</textarea>
+    <input class="form-control" formControlName="residence">
+    <input type="submit">
+
+</form>

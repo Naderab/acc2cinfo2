@@ -1,11 +1,23 @@
-<input class="form-control" [formControl]="name">
-<input type="submit" value="Ajouter" (click)="TestAdd()">
+<!--<input class="form-control" [formControl]="name">
+<input type="submit" value="Ajouter" (click)="TestAdd()">-->
 
 <form [formGroup]="residence">
     Name :<input class="form-control" formControlName="name">
+
+<div class="alert alert-danger" *ngIf="name!.invalid && 
+                        (name!.touched || name!.dirty)">
+    <div *ngIf="name!.errors!['required']">Name is required</div>
+    <div *ngIf="name!.errors!['minlength']">Name must have at least 3 characters!</div>
+</div>
+
     <div formGroupName="address">
         Street : <input class="form-control" formControlName="street">
+      
         City : <input class="form-control" formControlName="city">
+        <div class="alert alert-danger" *ngIf="city!.invalid && 
+                                        (city!.touched || city!.dirty)">
+            <div *ngIf="city!.errors!['pattern']">city invalid</div>
+        </div>
     </div>
     Image :<input class="form-control" formControlName="image">
     Parking : 
@@ -28,7 +40,7 @@
             <input type="checkbox" [formControlName]="i">
         </div>
     </div>
-    <input type="submit" value="Ajouter" (click)="TestAdd()">
+    <input type="submit" value="Ajouter" (click)="TestAdd()" [disabled]="residence.invalid">
     
 </form>
 <!--<button (click)="ajoutControl()"> add Control</button>-->

@@ -10,6 +10,7 @@ import { UsersComponent } from './users/users.component';
 import { DetailsUserComponent } from './details-user/details-user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormResidenceComponent } from './form-residence/form-residence.component';
+import { FormAppartementComponent } from './form-appartement/form-appartement.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormResidenceComponent } from './form-residence/form-residence.componen
     UsersComponent,
     DetailsUserComponent,
     NotFoundComponent,
-    FormResidenceComponent
+    FormResidenceComponent,
+    FormAppartementComponent
   ],
   imports: [
     BrowserModule,

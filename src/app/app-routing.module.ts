@@ -5,18 +5,21 @@ import { UsersComponent } from './users/users.component';
 import { DetailsUserComponent } from './details-user/details-user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormResidenceComponent } from './form-residence/form-residence.component';
+import { FormAppartementComponent } from './form-appartement/form-appartement.component';
 
 const routes: Routes = [
   { path: 'listResidence', component: ListResidenceComponent },
   { path: 'users', component: UsersComponent },
   { path: 'user/:name', component: DetailsUserComponent },
   { path: '', redirectTo: '/listResidence', pathMatch: 'full' },
-  {path:'formResidence',component:FormResidenceComponent},
+  { path: 'formResidence', component: FormResidenceComponent },
+  { path: 'appartements', component: FormAppartementComponent },
+
   { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

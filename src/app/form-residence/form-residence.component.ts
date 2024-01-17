@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-residence',
@@ -8,10 +8,10 @@ import { FormArray, FormControl, FormGroup } from '@angular/forms';
 })
 export class FormResidenceComponent {
   residence: FormGroup = new FormGroup({
-    name: new FormControl(''),
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     address: new FormGroup({
       street: new FormControl(''),
-      city: new FormControl(''),
+      city: new FormControl('',[Validators.pattern('[A-Za-z]*')]),
     }),
     parking: new FormControl(''),
     image: new FormControl(''),
@@ -19,7 +19,7 @@ export class FormResidenceComponent {
     appartments: new FormArray([new FormControl('')]),
     jardin: new FormArray([new FormControl('')]),
   });
-  name: FormControl = new FormControl('');
+  //name: FormControl = new FormControl('');
   TestAdd() {
     console.log(this.residence);
     console.log(this.residence.getRawValue());
@@ -42,7 +42,15 @@ export class FormResidenceComponent {
     return this.residence.get('appartments') as FormArray;
   }
 
+  get name() {
+    return this.residence.get('name') as FormControl
+  }
+
   get jardin() {
     return this.residence.get('jardin') as FormArray;
+  }
+
+  get city() {
+    return this.residence.get('address')!.get('city') as FormControl
   }
 }
