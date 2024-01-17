@@ -3,8 +3,32 @@
 
 <form [formGroup]="residence">
     Name :<input class="form-control" formControlName="name">
-    Address : <input class="form-control" formControlName="address">
+    <div formGroupName="address">
+        Street : <input class="form-control" formControlName="street">
+        City : <input class="form-control" formControlName="city">
+    </div>
     Image :<input class="form-control" formControlName="image">
+    Parking : 
+    <input type="radio" name="parking" formControlName="parking" value="oui">Oui
+    <input type="radio" name="parking" formControlName="parking" value="non">Non
+    Category : 
+    <select formControlName="category" class="form-control">
+        <option value="basic">Basic</option>
+        <option value="hautstanding">Haut standing</option>
+        <option value="hautstanding++">Haut standing ++</option>
+    </select>
+    <div formArrayName="appartments">
+        <button (click)="addControl()">+</button>
+        <div *ngFor="let a of appartments.controls;let i =index">
+            <input class="form-control" [formControlName]="i">
+        </div>
+    </div>
+    <div formArrayName="jardin">
+        <div *ngFor="let a of jardin.controls;let i =index">
+            <input type="checkbox" [formControlName]="i">
+        </div>
+    </div>
     <input type="submit" value="Ajouter" (click)="TestAdd()">
+    
 </form>
-<button (click)="ajoutControl()"> add Control</button>
+<!--<button (click)="ajoutControl()"> add Control</button>-->
