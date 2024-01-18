@@ -2,10 +2,18 @@
   <div class="mb-3">
     Apprt Number :
     <input class="form-control" formControlName="appartNumber" />
+    <div class="alert alert-danger" *ngIf="appartNumber!.invalid && (appartNumber!.touched || appartNumber!.dirty)">
+        <div *ngIf="appartNumber!.errors!['required']">Appart Number is required !</div>
+        <div *ngIf="appartNumber!.errors!['pattern']">Appart number accept only numbers!</div>
+    </div>
   </div>
   <div class="mb-3">
     Floor Number:
     <input class="form-control" formControlName="floorNumber" />
+    <div class="alert alert-danger" *ngIf="floorNumber!.invalid && (floorNumber!.touched || floorNumber!.dirty)">
+        <div *ngIf="floorNumber!.errors!['required']">floorNumber is required !</div>
+        <div *ngIf="floorNumber!.errors!['pattern']">floorNumber accept only numbers!</div>
+    </div>
   </div>
   <div class="mb-3">
     Surface:
@@ -16,7 +24,7 @@
     <input formControlName="terace" type="radio" value="oui" />oui
     <input formControlName="terace" type="radio" value="non" />non
   </div>
-  <div class="mb-3">
+  <div class="mb-3" *ngIf="terace!.value == 'oui'">
     Surface Terace :
     <input class="form-control" formControlName="surfaceTerace" />
   </div>
