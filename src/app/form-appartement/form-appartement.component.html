@@ -1,17 +1,38 @@
 <form [formGroup]="appartement">
-    <input class="form-control" formControlName="appartNumber">
-    <input class="form-control" formControlName="floorNumber">
-
-    <input class="form-control" formControlName="surface">
-    <input formControlName="terace" type="radio" value="oui">oui
-    <input formControlName="terace" type="radio" value="non">non
-    <input class="form-control" formControlName="surfaceTerace">
-    <input formControlName="category" type="radio" value="s+1">s+1
-    <input formControlName="category" type="radio" value="s+2">s+2
-    <input formControlName="category" type="radio" value="s+3">s+3
-
-    <textarea class="form-control" formControlName="description">description</textarea>
-    <input class="form-control" formControlName="residence">
-    <input type="submit">
-
+  <div class="mb-3">
+    Apprt Number :
+    <input class="form-control" formControlName="appartNumber" />
+  </div>
+  <div class="mb-3">
+    Floor Number:
+    <input class="form-control" formControlName="floorNumber" />
+  </div>
+  <div class="mb-3">
+    Surface:
+    <input class="form-control" formControlName="surface" />
+  </div>
+  <div class="mb-3">
+    Terace :
+    <input formControlName="terace" type="radio" value="oui" />oui
+    <input formControlName="terace" type="radio" value="non" />non
+  </div>
+  <div class="mb-3">
+    Surface Terace :
+    <input class="form-control" formControlName="surfaceTerace" />
+  </div>
+  <div class="mb-3">
+    Category :
+    <input formControlName="category" type="radio" value="s+1" />s+1
+    <input formControlName="category" type="radio" value="s+2" />s+2
+    <input formControlName="category" type="radio" value="s+3" />s+3
+  </div>
+  <div class="mb-3">
+    Description:
+    <textarea class="form-control" formControlName="description"></textarea>
+  </div>
+  <div class="mb-3">
+    Residence :
+    <input class="form-control" formControlName="residence" />
+  </div>
+  <div class="mb-3"><input type="submit" value="add" class="btn btn-primary"/></div>
 </form>
