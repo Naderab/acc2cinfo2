@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ResidenceService } from '../core/services/residence.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-residence',
@@ -7,20 +9,31 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form-residence.component.css'],
 })
 export class FormResidenceComponent {
+
+  constructor(private rs : ResidenceService,private r : Router) {}
+  // residence: FormGroup = new FormGroup({
+  //   name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+  //   address: new FormGroup({
+  //     street: new FormControl(''),
+  //     city: new FormControl('', [Validators.pattern('[A-Za-z]*')]),
+  //   }),
+  //   parking: new FormControl(''),
+  //   image: new FormControl(''),
+  //   category: new FormControl('basic'),
+  //   appartments: new FormArray([new FormControl('')]),
+  //   jardin: new FormArray([new FormControl('')]),
+  // });
+
   residence: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    address: new FormGroup({
-      street: new FormControl(''),
-      city: new FormControl('',[Validators.pattern('[A-Za-z]*')]),
-    }),
-    parking: new FormControl(''),
+    address:  new FormControl(''),
     image: new FormControl(''),
-    category: new FormControl('basic'),
-    appartments: new FormArray([new FormControl('')]),
-    jardin: new FormArray([new FormControl('')]),
   });
   //name: FormControl = new FormControl('');
   TestAdd() {
+    this.rs.addResidence(this.residence.value);
+    this.r.navigate(['/listResidence']);
+
     console.log(this.residence);
     console.log(this.residence.getRawValue());
     /*this.residence.patchValue({
@@ -43,7 +56,7 @@ export class FormResidenceComponent {
   }
 
   get name() {
-    return this.residence.get('name') as FormControl
+    return this.residence.get('name') as FormControl;
   }
 
   get jardin() {
@@ -51,6 +64,6 @@ export class FormResidenceComponent {
   }
 
   get city() {
-    return this.residence.get('address')!.get('city') as FormControl
+    return this.residence.get('address')!.get('city') as FormControl;
   }
 }

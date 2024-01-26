@@ -10,7 +10,10 @@
     <div *ngIf="name!.errors!['minlength']">Name must have at least 3 characters!</div>
 </div>
 
-    <div formGroupName="address">
+    Address :<input class="form-control" formControlName="address">
+
+
+    <!--<div formGroupName="address">
         Street : <input class="form-control" formControlName="street">
       
         City : <input class="form-control" formControlName="city">
@@ -18,9 +21,9 @@
                                         (city!.touched || city!.dirty)">
             <div *ngIf="city!.errors!['pattern']">city invalid</div>
         </div>
-    </div>
+    </div>-->
     Image :<input class="form-control" formControlName="image">
-    Parking : 
+    <!-- Parking : 
     <input type="radio" name="parking" formControlName="parking" value="oui">Oui
     <input type="radio" name="parking" formControlName="parking" value="non">Non
     Category : 
@@ -39,7 +42,7 @@
         <div *ngFor="let a of jardin.controls;let i =index">
             <input type="checkbox" [formControlName]="i">
         </div>
-    </div>
+    </div> -->
     <input type="submit" value="Ajouter" (click)="TestAdd()" [disabled]="residence.invalid">
     
 </form>

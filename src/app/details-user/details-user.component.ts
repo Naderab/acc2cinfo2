@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ResidenceService } from '../core/services/residence.service';
 
 @Component({
   selector: 'app-details-user',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./details-user.component.css']
 })
 export class DetailsUserComponent {
-
+  variable!:number;
+  constructor(private r: ResidenceService) {
+    this.variable = r.a;
+  }
 }

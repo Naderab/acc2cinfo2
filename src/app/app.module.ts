@@ -12,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FormResidenceComponent } from './form-residence/form-residence.component';
 import { FormAppartementComponent } from './form-appartement/form-appartement.component';
 import { ResidenceComponent } from './residence/residence.component';
+import { ResidenceService } from './core/services/residence.service';
 
 @NgModule({
   declarations: [

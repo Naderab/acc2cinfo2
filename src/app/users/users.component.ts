@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ResidenceService } from '../core/services/residence.service';
 
 @Component({
   selector: 'app-users',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent {
+  constructor(private rs: ResidenceService) {}
   person = { name: 'Jhon', age: 30 };
   array = [1, 2, 3, 4, 5];
   searchText: string = '';
@@ -32,5 +34,9 @@ export class UsersComponent {
     this.arrayOfPerson = this.arrayOfPerson.filter(
       (p: any) => p.name === this.searchText
     );
+  }
+
+  change() {
+    this.rs.changeA();
   }
 }
