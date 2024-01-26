@@ -89,4 +89,8 @@ export class ListResidenceComponent {
       (a) => a.residence == r
     );
   }
+
+  deleteResidence(r: Residence) {
+    this.residences = this.residences.filter((res) => res != r);
+  }
 }

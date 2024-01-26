@@ -11,6 +11,7 @@ import { DetailsUserComponent } from './details-user/details-user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormResidenceComponent } from './form-residence/form-residence.component';
 import { FormAppartementComponent } from './form-appartement/form-appartement.component';
+import { ResidenceComponent } from './residence/residence.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormAppartementComponent } from './form-appartement/form-appartement.co
     DetailsUserComponent,
     NotFoundComponent,
     FormResidenceComponent,
-    FormAppartementComponent
+    FormAppartementComponent,
+    ResidenceComponent
   ],
   imports: [
     BrowserModule,

@@ -2,14 +2,7 @@
 <div class="container">
 <div class="row">
 <div class="col-3" *ngFor="let r of residences">
-<div class="card" style="width: 18rem;" >
-    <img [src]="r.image" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{r.name}}</h5>
-        <p class="card-text">{{r.address}}</p>
-        <button class="btn btn-primary" (click)="showApartment(r)">Show apartments</button>
-    </div>
-</div>
+    <app-residence [residence]="r" (show)="showApartment($event)" (delete)="deleteResidence($event)"></app-residence>
 </div>
 </div>
 <div class="row">
