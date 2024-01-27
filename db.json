@@ -4,13 +4,22 @@
       "id": 1,
       "name": "Residence 1",
       "address": "Address 1",
-      "image": "../../assets/images/R1.jpg"
+      "image": "../../assets/images/R1.jpg",
+      "state": true
     },
     {
-      "name": "Residence 2",
+      "name": "Residence updated",
       "address": "Address 2",
       "image": "../../assets/images/R2.jpg",
-      "id": 2
+      "id": 2,
+      "state": true
+    },
+    {
+      "name": "test ",
+      "address": "test",
+      "image": "../../assets/images/R3.jpg",
+      "id": 3,
+      "state": true
     }
   ],
   "appartments": []

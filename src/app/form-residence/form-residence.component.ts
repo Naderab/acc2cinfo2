@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ResidenceService } from '../core/services/residence.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ResidenceConsumerService } from '../core/services/residence-consumer.service';
 
 @Component({
@@ -11,7 +11,20 @@ import { ResidenceConsumerService } from '../core/services/residence-consumer.se
 })
 export class FormResidenceComponent {
 
-  constructor(private rs : ResidenceService,private r : Router,private rs2:ResidenceConsumerService) {}
+  id!: number;
+  constructor(private ac: ActivatedRoute, private rs: ResidenceService, private r: Router, private rs2: ResidenceConsumerService) {
+    this.id = this.ac.snapshot.params['id'];
+
+    if (this.id !== undefined) {
+      this.rs2.getResidenceById(this.id).subscribe({
+        next: (data) => this.residence.patchValue(data),
+        error: (err) => {
+          alert("Residence not found");
+          this.r.navigate(['/listResidence'])
+        }
+      })
+    }
+  }
   // residence: FormGroup = new FormGroup({
   //   name: new FormControl('', [Validators.required, Validators.minLength(3)]),
   //   address: new FormGroup({
@@ -33,10 +46,16 @@ export class FormResidenceComponent {
   //name: FormControl = new FormControl('');
   TestAdd() {
     //this.rs.addResidence(this.residence.value);
-    this.rs2.addResidence(this.residence.value).subscribe({
-      next : ()=> this.r.navigate(['/listResidence'])
-    })
-
+    if (this.id !== undefined) {
+      this.rs2.updateResidence(this.id,this.residence.value).subscribe({
+        next: () => this.r.navigate(['/listResidence']),
+      });
+    }
+    else {
+      this.rs2.addResidence(this.residence.value).subscribe({
+        next: () => this.r.navigate(['/listResidence'])
+      })
+    }
     console.log(this.residence);
     console.log(this.residence.getRawValue());
     /*this.residence.patchValue({

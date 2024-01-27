@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'user/:name', component: DetailsUserComponent },
   { path: '', redirectTo: '/listResidence', pathMatch: 'full' },
   { path: 'formResidence', component: FormResidenceComponent },
+  {path:'updateResidence/:id',component:FormResidenceComponent},
   { path: 'formAppartement', component: FormAppartementComponent },
 
   { path: '**', component: NotFoundComponent },

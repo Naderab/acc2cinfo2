@@ -17,11 +17,15 @@ export class ResidenceConsumerService {
     return this.http.post(this.apiUrl, r);
   }
 
-  updateResidence(r: Residence) {
-    return this.http.put(this.apiUrl + r.id, r);
+  updateResidence(id:number,r: Residence) {
+    return this.http.put(this.apiUrl + id, r);
   }
 
   deleteResidence(id: number) {
     return this.http.delete(this.apiUrl + id);
+  }
+
+  getResidenceById(id: number) {
+    return this.http.get(this.apiUrl +id)
   }
 }
