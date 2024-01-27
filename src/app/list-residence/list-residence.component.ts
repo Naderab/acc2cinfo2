@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Residence } from '../core/models/residence';
 import { Apartment } from '../core/models/apartment';
 import { ResidenceService } from '../core/services/residence.service';
+import { ResidenceConsumerService } from '../core/services/residence-consumer.service';
 
 @Component({
   selector: 'app-list-residence',
@@ -11,8 +12,12 @@ import { ResidenceService } from '../core/services/residence.service';
 export class ListResidenceComponent {
   residences: Residence[] = [];
 
-  constructor(private rs: ResidenceService) {
-    this.residences = this.rs.residences;
+  constructor(private rs: ResidenceService,private rs2:ResidenceConsumerService) {
+    //this.residences = this.rs.residences;
+    this.rs2.getAllResidences().subscribe({
+      next: (data) => this.residences = data as Residence[],
+      error:(err)=>console.log(err)
+    })
    }
   listApartments: Apartment[] = [
     {

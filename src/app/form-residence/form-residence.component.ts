@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ResidenceService } from '../core/services/residence.service';
 import { Router } from '@angular/router';
+import { ResidenceConsumerService } from '../core/services/residence-consumer.service';
 
 @Component({
   selector: 'app-form-residence',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class FormResidenceComponent {
 
-  constructor(private rs : ResidenceService,private r : Router) {}
+  constructor(private rs : ResidenceService,private r : Router,private rs2:ResidenceConsumerService) {}
   // residence: FormGroup = new FormGroup({
   //   name: new FormControl('', [Validators.required, Validators.minLength(3)]),
   //   address: new FormGroup({
@@ -31,8 +32,10 @@ export class FormResidenceComponent {
   });
   //name: FormControl = new FormControl('');
   TestAdd() {
-    this.rs.addResidence(this.residence.value);
-    this.r.navigate(['/listResidence']);
+    //this.rs.addResidence(this.residence.value);
+    this.rs2.addResidence(this.residence.value).subscribe({
+      next : ()=> this.r.navigate(['/listResidence'])
+    })
 
     console.log(this.residence);
     console.log(this.residence.getRawValue());

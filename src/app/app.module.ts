@@ -13,7 +13,7 @@ import { FormResidenceComponent } from './form-residence/form-residence.componen
 import { FormAppartementComponent } from './form-appartement/form-appartement.component';
 import { ResidenceComponent } from './residence/residence.component';
 import { ResidenceService } from './core/services/residence.service';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +30,8 @@ import { ResidenceService } from './core/services/residence.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

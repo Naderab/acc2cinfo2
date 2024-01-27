@@ -1,0 +1,17 @@
+{
+  "residences": [
+    {
+      "id": 1,
+      "name": "Residence 1",
+      "address": "Address 1",
+      "image": "../../assets/images/R1.jpg"
+    },
+    {
+      "name": "Residence 2",
+      "address": "Address 2",
+      "image": "../../assets/images/R2.jpg",
+      "id": 2
+    }
+  ],
+  "appartments": []
+}
